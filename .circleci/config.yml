@@ -1,0 +1,14 @@
+version: 2.1
+
+jobs:
+  imwheel-fedora29-build:
+    docker:
+      - image: fedora:29
+    steps:
+      - checkout
+      - run: cd imwheel && ./build-fedora.sh
+
+workflows:
+  default-workflow:
+    jobs:
+      - imwheel-fedora29-build
